@@ -12,5 +12,7 @@
 </head>
 <body>
 Fail
+<a href="/admin/add">Wróć do formularza</a>
+<a href="/">Strona główna</a>
 </body>
 </html>

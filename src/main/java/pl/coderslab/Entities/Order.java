@@ -14,8 +14,8 @@ import java.util.List;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_order;
+    private Long id;
     private LocalDateTime dateOfOrder;
-    @ManyToOne
-    private Client client;
+    @OneToMany
+    private List<Product> products;
 }

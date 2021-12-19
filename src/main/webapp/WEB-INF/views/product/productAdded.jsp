@@ -16,9 +16,7 @@
 Product Added
 <br/>
 <br/>
-<form:form action="/product/add" method="get">
-    <input type="submit" value="Dodaj jeszcze produkt"/>
-</form:form>
-
+<a href="/product/add">Dodaj jeszcze produkt</a><br/>
+<a href="/">Strona główna</a>
 </body>
 </html>

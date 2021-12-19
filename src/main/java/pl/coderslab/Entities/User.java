@@ -22,8 +22,5 @@ public class User {
     @ManyToOne
     private Role role;
 
-    public Role getRole() {
-        return role;
-    }
 
 }

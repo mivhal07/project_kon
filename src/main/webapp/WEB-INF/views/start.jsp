@@ -17,6 +17,9 @@
 <sec:authorize access="isAnonymous()">
     <a href="/login">Zaloguj</a><br/>
 </sec:authorize>
+<sec:authorize access="isAnonymous()">
+    <a href="/register">Zarejestruj się</a><br/>
+</sec:authorize>
 <sec:authorize access="isAuthenticated()">
     <form action="<c:url value="/logout"/>" method="post">
         <input type="submit" value="Wyloguj">
@@ -32,5 +35,10 @@
 <form:form action="/contact" method="get">
     <input type="submit" value="Kontakt">
 </form:form>
+<sec:authorize access="hasRole('ADMIN')">
+    <a href="/admin/product/add">Dodaj produkt</a><br/>
+    <a href="/admin/add">Dodaj admina</a><br/>
+    <a href="/admin/addCategory">Dodaj kategorię</a>
+</sec:authorize>
 </body>
 </html>

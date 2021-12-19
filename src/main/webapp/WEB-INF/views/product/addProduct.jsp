@@ -13,8 +13,8 @@
     <label for="name">Nazwa Produktu</label>
     <form:input path="name" id="name"/><br/>
     <form:errors path="name"/><br/>
-    <label for="desc">Opis produktu</label>
-    <form:input path="description" id="desc"/><br/>
+    <label for="description">Opis produktu</label>
+    <form:input path="description" id="description"/><br/>
     <form:errors path="description"/><br>
     <label for="quantity">Ilość</label>
     <form:input path="quantity" id="quantity"/><br/>
@@ -23,7 +23,7 @@
     <form:input path="price" id="price"/><br/>
     <form:errors path="price"/><br/>
     <label>Kategoria
-        <form:select itemValue="category_id" itemLabel="name" path="category" items="${categories}"/>
+        <form:select itemValue="id" itemLabel="name" path="category.id" items="${categories}"/>
     </label><br/>
     <input type="submit" value="Save"><br/>
 </form:form>

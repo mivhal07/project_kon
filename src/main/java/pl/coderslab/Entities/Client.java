@@ -15,7 +15,7 @@ import java.util.Set;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_client;
+    private Long id;
     @NotNull
     private String email;
     @NotNull
@@ -24,4 +24,6 @@ public class Client {
     private String firstName;
     private String lastName;
     private String address;
+    @OneToOne
+    private Order order;
 }

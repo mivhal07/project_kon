@@ -11,6 +11,7 @@
     <title>O nas</title>
 </head>
 <body>
+<a href="/">Strona główna</a>
 Tu będzie o nas
 </body>
 </html>

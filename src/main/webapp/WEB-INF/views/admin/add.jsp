@@ -23,9 +23,6 @@
     <label for="quantity">Enabled</label>
     <form:input path="enabled" id="quantity"/><br/>
     <form:errors path="enabled"/><br/>
-    <label>Rola
-        <form:select itemValue="id" itemLabel="name" path="role" items="${roles}"/>
-    </label><br/>
     <input type="submit" value="Save"><br/>
 </form:form>
 </body>
