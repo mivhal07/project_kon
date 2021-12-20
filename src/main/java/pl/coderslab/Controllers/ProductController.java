@@ -75,8 +75,6 @@ public class ProductController {
         return "product/categoryAdded";
     }
 
-    //w tym miejscu kończę projekt, strasznie dużo czasu zabiera mi kombinowanie z tym koszykiem,
-    //bo nic nie działa tak jak działało wcześniej
     @GetMapping("product/order/add/{id}")
     public String addToOrder(@PathVariable Long id) {
         Product productById = productDao.findProductById(id);

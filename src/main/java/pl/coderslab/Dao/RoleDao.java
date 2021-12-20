@@ -15,6 +15,10 @@ public class RoleDao {
     @PersistenceContext
     EntityManager entityManager;
 
+    public void createRole(Role role){
+        entityManager.persist(role);
+    }
+
     public List<Role> getAllRoles() {
         return entityManager.createQuery("select  b from Role b").getResultList();
     }

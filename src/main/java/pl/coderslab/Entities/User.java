@@ -19,8 +19,6 @@ public class User {
     private int enabled =1;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
-    @ManyToOne
-    private Role role;
 
 
 }

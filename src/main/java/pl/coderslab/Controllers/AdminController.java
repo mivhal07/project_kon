@@ -57,9 +57,4 @@ public class AdminController {
         return "admin/adminAdded";
     }
 
-    @ModelAttribute("roles")
-    public Collection<Role> roles() {
-        return this.roleDao.getAllRoles();
-    }
-
 }

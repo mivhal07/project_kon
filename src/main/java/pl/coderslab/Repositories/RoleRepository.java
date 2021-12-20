@@ -7,4 +7,5 @@ import pl.coderslab.Entities.Role;
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Integer> {
     Role findByName(String name);
+    Role findById(int id);
 }
