@@ -1,12 +1,11 @@
-package pl.coderslab.Controllers;
+package pl.coderslab.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import pl.coderslab.Dao.RoleDao;
-import pl.coderslab.Entities.Role;
-import pl.coderslab.Entities.User;
-import pl.coderslab.Repositories.RoleRepository;
+import pl.coderslab.entities.Role;
+import pl.coderslab.entities.User;
+import pl.coderslab.repositories.RoleRepository;
 import pl.coderslab.Services.UserService;
 
 import java.util.Arrays;

@@ -1,6 +1,6 @@
 package pl.coderslab.Services;
 
-import pl.coderslab.Entities.User;
+import pl.coderslab.entities.User;
 
 public interface UserService {
     User findByUserName(String name);

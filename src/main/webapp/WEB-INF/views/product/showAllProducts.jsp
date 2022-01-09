@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: michal
@@ -16,7 +17,8 @@
 <div>Sortuj po kategorii:</div>
 <ul>
     <c:forEach items="${categories}" var="category">
-        <li>${category.name}</li><a href="/showAllByCat/${category.id}">Sortuj</a>
+        <li>${category.name}</li>
+        <a href="/showAllByCat/${category.id}">Sortuj</a>
     </c:forEach>
 </ul>
 <table>
@@ -25,6 +27,7 @@
         <td>Nazwa produktu</td>
         <td>Opis produktu</td>
         <td>Cena produktu</td>
+        <td>Akcja</td>
         <br/>
         <br/>
     </tr>
@@ -33,7 +36,10 @@
             <td>${product.name}</td>
             <td>${product.description}</td>
             <td>${product.price}</td>
-            <td><a href="/product/order/add/${product.id}">Dodaj do koszyka</a> </td>
+            <td><sec:authorize access="hasRole('ADMIN')">
+                <a href="/product/editProduct/${product.id}">Edytuj Product</a>
+            </sec:authorize><br/>
+                <a href="/product/order/add/${product.id}">Dodaj do koszyka</a></td>
             <br/>
         </tr>
         <br/>

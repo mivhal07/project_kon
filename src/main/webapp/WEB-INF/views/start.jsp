@@ -15,30 +15,26 @@
 </head>
 <body>
 <sec:authorize access="isAnonymous()">
-    <a href="/login">Zaloguj</a><br/>
+    <a href="/login">Zaloguj</a><br/><br/>
+    <a href="/register">Zarejestruj się</a><br/><br/>
 </sec:authorize>
-<sec:authorize access="isAnonymous()">
-    <a href="/register">Zarejestruj się</a><br/>
-</sec:authorize>
+
 <sec:authorize access="isAuthenticated()">
     <form action="<c:url value="/logout"/>" method="post">
-        <input type="submit" value="Wyloguj">
+        <input type="submit" value="Wyloguj"><br/><br/>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
     </form>
 </sec:authorize>
-<form:form action="/product/showAllProducts" method="get">
-    <input type="submit" value="Produkty">
-</form:form>
-<form:form action="/about" method="get">
-    <input type="submit" value="O nas">
-</form:form>
-<form:form action="/contact" method="get">
-    <input type="submit" value="Kontakt">
-</form:form>
+
+<a href="/product/showAllProducts">Produkty</a><br/><br/>
+<a href="/about">O nas</a><br/><br/>
+<a href="/contact">Kontakt</a><br/><br/>
+
 <sec:authorize access="hasRole('ADMIN')">
-    <a href="/admin/product/add">Dodaj produkt</a><br/>
-    <a href="/admin/add">Dodaj admina</a><br/>
-    <a href="/admin/addCategory">Dodaj kategorię</a>
+    <a href="/admin/product/add">Dodaj produkt</a><br/><br/>
+    <a href="/admin/add">Dodaj admina</a><br/><br/>
+    <a href="/admin/category/addCategory">Dodaj kategorię</a><br/><br/>
+    <a href="/admin/category/categories">Zaktualizuj kategorię</a>
 </sec:authorize>
 </body>
 </html>

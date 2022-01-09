@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: michal
@@ -18,6 +19,7 @@
         <td>Nazwa produktu</td>
         <td>Opis produktu</td>
         <td>Cena produktu</td>
+        <td>Akcja</td>
         <br/>
         <br/>
     </tr>
@@ -26,7 +28,10 @@
             <td>${product.name}</td>
             <td>${product.description}</td>
             <td>${product.price}</td>
-            <td><a href="/cart/add?id=${product.id}">Dodaj do koszyka</a> </td>
+            <td><sec:authorize access="hasRole('ADMIN')">
+                <a href="/product/editProduct/${product.id}">Edytuj Product</a>
+            </sec:authorize><br/>
+                <a href="/product/order/add/${product.id}">Dodaj do koszyka</a></td>
             <br/>
         </tr>
         <br/>

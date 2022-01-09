@@ -2,10 +2,10 @@ package pl.coderslab.Services;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import pl.coderslab.Entities.Role;
-import pl.coderslab.Repositories.RoleRepository;
-import pl.coderslab.Entities.User;
-import pl.coderslab.Repositories.UserRepository;
+import pl.coderslab.entities.Role;
+import pl.coderslab.repositories.RoleRepository;
+import pl.coderslab.entities.User;
+import pl.coderslab.repositories.UserRepository;
 
 import java.util.Arrays;
 import java.util.HashSet;

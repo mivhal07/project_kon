@@ -1,4 +1,4 @@
-package pl.coderslab.Controllers;
+package pl.coderslab.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,12 +6,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.coderslab.Dao.CategoryDao;
-import pl.coderslab.Dao.OrderDao;
-import pl.coderslab.Dao.ProductDao;
-import pl.coderslab.Entities.Category;
-import pl.coderslab.Entities.Product;
-import pl.coderslab.Repositories.ProductRepository;
+import pl.coderslab.dao.CategoryDao;
+import pl.coderslab.dao.OrderDao;
+import pl.coderslab.dao.ProductDao;
+import pl.coderslab.entities.Category;
+import pl.coderslab.entities.Product;
+import pl.coderslab.repositories.ProductRepository;
 
 import javax.validation.Valid;
 
@@ -19,17 +19,19 @@ import javax.validation.Valid;
 public class ProductController {
     private final ProductDao productDao;
     private final CategoryDao categoryDao;
-    private final OrderDao orderDao;
     private final ProductRepository productRepository;
 
 
-    public ProductController(ProductDao productDao, CategoryDao categoryDao, OrderDao orderDao, ProductRepository productRepository) {
+    public ProductController(ProductDao productDao, CategoryDao categoryDao, ProductRepository productRepository) {
         this.productDao = productDao;
         this.categoryDao = categoryDao;
-        this.orderDao = orderDao;
         this.productRepository = productRepository;
 
     }
+    /*
+    kategorie
+    karta zakupów
+     */
 
     @GetMapping("/product/showAllProducts")
     public String showAll(Model model) {
@@ -60,34 +62,27 @@ public class ProductController {
         return "product/productAdded";
     }
 
-    @GetMapping("/admin/addCategory")
-    public String addCat(Model model) {
-        model.addAttribute("category", new Category());
-        return "product/addCategory";
+
+    @GetMapping("product/editProduct/{id}")
+    public String editProduct(@PathVariable Long id, Model model){
+        model.addAttribute("product", productDao.findProductById(id));
+        model.addAttribute("categories", categoryDao.categoryList());
+        return "product/editProduct";
     }
 
-    @PostMapping("/admin/addCategory")
-    public String addCatResult(@Valid Category category, BindingResult result) {
-        if (result.hasErrors()) {
-            return "product/categoryFail";
+    @PostMapping("product/editProduct/{id}")
+    public String updating(@Valid Product product, BindingResult result){
+        if (result.hasErrors()){
+            return "product/editFail";
         }
-        categoryDao.addCategory(category);
-        return "product/categoryAdded";
+        productDao.editProduct(product);
+        return "product/editGood";
     }
 
-    @GetMapping("product/order/add/{id}")
-    public String addToOrder(@PathVariable Long id) {
-        Product productById = productDao.findProductById(id);
-        System.out.println(productById.toString());
-        orderDao.addProductToOrder(productById);
-        return "cart/shopping";
-    }
-
-    @GetMapping("product/showCart")
-    public String showCart() {
-
-
-        return "cart/showCart";
+    @GetMapping("delete/{id}")
+    public String deleting(@PathVariable Long id, Model model){
+        productDao.delete(productDao.findProductById(id));
+        return "product/deleted";
     }
 
 }

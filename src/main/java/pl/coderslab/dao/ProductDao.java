@@ -1,7 +1,7 @@
-package pl.coderslab.Dao;
+package pl.coderslab.dao;
 
 import org.springframework.stereotype.Repository;
-import pl.coderslab.Entities.Product;
+import pl.coderslab.entities.Product;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,8 +26,13 @@ public class ProductDao {
         return entityManager.find(Product.class, id);
     }
 
-    public void updateProduct(Product product){
+    public void editProduct(Product product) {
         entityManager.merge(product);
+    }
+
+    public void delete(Product product) {
+        entityManager.remove(entityManager.contains(product) ?
+                product : entityManager.merge(product));
     }
 
 
