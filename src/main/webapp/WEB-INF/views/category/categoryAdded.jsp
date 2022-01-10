@@ -13,6 +13,6 @@
 <body>
 Category added<br/>
 <a href="/">Strona główna</a>
-<a href="/admin/addCategory">Dodaj jeszcze kategorię</a>
+<a href="/admin/category/addCategory">Dodaj jeszcze kategorię</a>
 </body>
 </html>

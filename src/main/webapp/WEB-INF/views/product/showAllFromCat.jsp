@@ -13,6 +13,7 @@
     <title>Products</title>
 </head>
 <body>
+<a href="/">Główna</a><br/><br/>
 <table>
     <tbody>
     <tr>

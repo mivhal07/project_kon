@@ -49,7 +49,7 @@ public class AdminController {
             return "Admin/addFail";
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        Role userRole = roleRepository.findByName("ADMIN");
+        Role userRole = roleRepository.findByName("ROLE_ADMIN");
         user.setRoles(new HashSet<>(Arrays.asList(userRole)));
         userRepository.save(user);
         return "admin/adminAdded";

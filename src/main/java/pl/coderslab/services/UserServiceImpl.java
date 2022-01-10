@@ -1,10 +1,10 @@
-package pl.coderslab.Services;
+package pl.coderslab.services;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.coderslab.entities.Role;
-import pl.coderslab.repositories.RoleRepository;
 import pl.coderslab.entities.User;
+import pl.coderslab.repositories.RoleRepository;
 import pl.coderslab.repositories.UserRepository;
 
 import java.util.Arrays;
@@ -34,6 +34,15 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setEnabled(1);
         Role userRole = roleRepository.findByName("ROLE_USER");
+        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
+        userRepository.save(user);
+    }
+
+    @Override
+    public void saveAdmin(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setEnabled(1);
+        Role userRole = roleRepository.findByName("ROLE_ADMIN");
         user.setRoles(new HashSet<>(Arrays.asList(userRole)));
         userRepository.save(user);
     }

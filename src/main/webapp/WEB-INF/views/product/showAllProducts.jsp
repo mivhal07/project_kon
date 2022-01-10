@@ -14,6 +14,7 @@
     <title>Title</title>
 </head>
 <body>
+<a href="/">Główna</a><br/><br/>
 <div>Sortuj po kategorii:</div>
 <ul>
     <c:forEach items="${categories}" var="category">
@@ -37,7 +38,8 @@
             <td>${product.description}</td>
             <td>${product.price}</td>
             <td><sec:authorize access="hasRole('ADMIN')">
-                <a href="/product/editProduct/${product.id}">Edytuj Product</a>
+                <a href="/product/editProduct/${product.id}">Edytuj Product</a><br/>
+                <a href="/product/delete/${product.id}">Usuń</a>
             </sec:authorize><br/>
                 <a href="/product/order/add/${product.id}">Dodaj do koszyka</a></td>
             <br/>

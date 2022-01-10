@@ -68,7 +68,7 @@ public class CategoryController {
     }
 
     @GetMapping("delete/{id}")
-    public String deleting(@PathVariable Long id, Model model) {
+    public String deleting(@PathVariable Long id) {
         List<Product> productByCategory = productRepository.findProductByCategory(id);
         for (Product product : productByCategory) {
             productDao.delete(product);

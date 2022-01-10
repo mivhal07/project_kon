@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.dao.CategoryDao;
-import pl.coderslab.dao.OrderDao;
 import pl.coderslab.dao.ProductDao;
-import pl.coderslab.entities.Category;
 import pl.coderslab.entities.Product;
 import pl.coderslab.repositories.ProductRepository;
 
@@ -79,8 +77,8 @@ public class ProductController {
         return "product/editGood";
     }
 
-    @GetMapping("delete/{id}")
-    public String deleting(@PathVariable Long id, Model model){
+    @GetMapping("product/delete/{id}")
+    public String deleting(@PathVariable Long id){
         productDao.delete(productDao.findProductById(id));
         return "product/deleted";
     }

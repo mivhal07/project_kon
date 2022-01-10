@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.entities.Role;
 import pl.coderslab.entities.User;
 import pl.coderslab.repositories.RoleRepository;
-import pl.coderslab.Services.UserService;
+import pl.coderslab.services.UserService;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -31,8 +31,8 @@ public class UserController {
         Role userRole = roleRepository.findById(1);
         user.setRoles(new HashSet<>(Arrays.asList(userRole)));
 
-        userService.saveUser(user);
-        return "admin";
+        userService.saveAdmin(user);
+        return "admin/adminAdded";
     }
 
 }

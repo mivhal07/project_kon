@@ -18,7 +18,7 @@
     <form:input path="username" id="name"/><br/>
     <form:errors path="username"/><br/>
     <label for="desc">Hasło</label>
-    <form:input path="password" id="desc"/><br/>
+    <form:password path="password" id="desc"/><br/>
     <form:errors path="password"/><br>
     <label for="quantity">Enabled</label>
     <form:input path="enabled" id="quantity"/><br/>

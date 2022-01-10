@@ -16,7 +16,7 @@
 Product Added
 <br/>
 <br/>
-<a href="/product/add">Dodaj jeszcze produkt</a><br/>
+<a href="/admin/product/add">Dodaj jeszcze produkt</a><br/>
 <a href="/">Strona główna</a>
 </body>
 </html>
